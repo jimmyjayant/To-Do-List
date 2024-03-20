@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            To Do List 
+        </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <div class="container">
+
+        <div id="headinganddate">
+          <h1>
+             To-Do List 
+          </h1>
+
+          <h2 id="curdate">
+          </h2>
+        </div>
+        
+        <div class="text" id="cont">
+            <input type="text" name="textfield" id="textfield" placeholder="Enter a task">
+            <button type="button" onclick="todo()" id="addbut">Add</button>
+            <br>
+            <span id="error">Please enter a value</span>
+        </div>
+
+      </div>
+      
+      <script src="script.js"></script>
+    </body>
+</html>

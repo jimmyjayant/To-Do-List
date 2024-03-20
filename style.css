@@ -1,0 +1,88 @@
+* {
+    box-sizing:border-box;
+}
+
+body {
+    background-color:lightgrey;
+}
+
+h1, h2 {
+    text-align:center;
+}
+
+.container {
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column;
+    text-align:center;
+    justify-content:center;
+    align-items:center;
+    overflow:auto;
+}
+
+.text {
+    border:2px solid black;
+    padding:20px;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+    overflow:auto;
+    background-color:white;
+}
+
+input {
+    width:80%;
+    padding:5px;
+    border:2px solid black;
+}
+
+#addbut {
+    padding:5px;
+    border:2px solid black;
+}
+
+.todotask {
+    margin-top:10px;
+}
+
+.text div {
+padding:1rem;
+}
+
+.dis {
+    display:inline-block;
+}
+
+#error {
+display:none;
+color:red;
+}
+
+.tick, .cross, .edit, .savechange, .cancelchange {
+    font-size:1rem;
+    border-radius:100%;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+#cont div {
+    background-color:#c7ecee;
+}
+
+@media screen and (max-width: 600px) {
+#addbut, span, input {
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.dis {
+    display:block;
+}
+
+#addbut {
+    margin-top:10px;
+}
+}
+
+ 
