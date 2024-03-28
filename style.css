@@ -65,6 +65,10 @@ color:red;
     margin-right:5px;
 }
 
+.hidden {
+    display:none;
+}
+
 #cont div {
     background-color:#c7ecee;
 }

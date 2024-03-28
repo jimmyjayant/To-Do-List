@@ -1,73 +1,82 @@
+var todoArray = localStorage.getItem("todotasks") ? JSON.parse(localStorage.getItem("todotasks")) : [];
+
+var err = document.getElementById('error');
+
+function localstorageitem() {
+  todoArray.push(textfield.value);
+  localStorage.setItem("todotasks", JSON.stringify(todoArray));
+}
+
 function todo()
 {
-  var err = document.getElementById('error');
-
-  var inputtext = textfield.value;
-
-  function adddiv() {
-    var add = document.createElement("div");
-    add.setAttribute("class", "todotask");
-
-    var p = document.createElement("p");
-    p.setAttribute("class", "dis");
-    p.innerHTML = inputtext;
-
-    var add1 = document.createElement("button");
-    add1.innerHTML = "&#10004;";
-    add1.setAttribute("class", "tick");
-    add1.setAttribute("onclick", "tick(this)");
-
-    var add2 = document.createElement("button");
-    add2.innerHTML = "&#9998;";
-    add2.setAttribute("class", "edit");
-    add2.setAttribute("onclick", "edit(this)");
-
-    var add3 = document.createElement("button");
-    add3.innerHTML = "&#10008;";
-    add3.setAttribute("class", "cross");
-    add3.setAttribute("onclick", "cross(this)");
-
-    add.appendChild(p);
-    add.appendChild(add1);
-    add.appendChild(add2);
-    add.appendChild(add3);
-
-    document.getElementById('cont').appendChild(add);
-  }
-
-
-  if(inputtext === "")
+  if(textfield.value === "")
   {
     err.style.display = "block";
   }
-  else if(inputtext != "")
+  else if(textfield.value !== "")
   {
     if(err.style.display == "block")
       {
         err.style.display = "none";
       }
-    
-    adddiv();
-    textfield.value = "";
+    localstorageitem();
+    location.reload();
   }
   else
-  {  
-    adddiv();
-    textfield.value = "";
+  { 
+    localstorageitem();
+    location.reload();
+  }
+}
+
+function adddiv() {
+  if(todoArray.length)
+  {
+    for(let i=0; i<todoArray.length; i++)
+    {
+      var add = document.createElement("div");
+      add.setAttribute("class", "todotask");
+    
+      var p = document.createElement("p");
+      p.setAttribute("class", "dis");
+      p.innerHTML = todoArray[i];
+    
+      var add1 = document.createElement("button");
+      add1.innerHTML = "&#10004;";
+      add1.setAttribute("class", "tick");
+      add1.setAttribute("onclick", "tick(this)");
+    
+      var add2 = document.createElement("button");
+      add2.innerHTML = "&#9998;";
+      add2.setAttribute("class", "edit");
+      add2.setAttribute("onclick", "edit(this)");
+    
+      var add3 = document.createElement("button");
+      add3.innerHTML = "&#10008;";
+      add3.setAttribute("class", "cross");
+      add3.setAttribute("onclick", "cross(this)");
+
+      var add4 = document.createElement("span");
+      add4.innerHTML = i;
+      add4.setAttribute("class", "hidden");
+      
+      add.appendChild(p);
+      add.appendChild(add1);
+      add.appendChild(add2);
+      add.appendChild(add3);
+      add.appendChild(add4);
+    
+      document.getElementById('cont').appendChild(add);
+    }
   }
 }
 
 function cross(e) {
-  var newnode = e.parentElement.nodeName;
-  if(newnode == "DEL")
-  {
-    e.parentElement.parentElement.remove();
-  }
-  else
-  {
-    e.parentElement.remove();
-  }
-  
+  let i = e.parentElement.getElementsByClassName("hidden")[0].textContent;
+  todoArray.splice(i,1);
+  localStorage.setItem("todotasks", JSON.stringify(todoArray));
+  e.parentElement.remove();
+  location.reload();
 }
 
 function tick(e) {
@@ -83,12 +92,8 @@ function tick(e) {
   }  
 }
 
-// to do task value to be used in case of cancelchange function 
-var taskforedit;
-
 function edit(e) {  
   var edittask = e.parentElement.firstChild.textContent;
-  taskforedit = edittask;
   var n = document.createElement("input");
   n.setAttribute("type", "text");
   n.setAttribute("class", "editedtask");
@@ -127,7 +132,10 @@ function edit(e) {
 function savechange(e) {
   var p = document.createElement("p");
   p.setAttribute("class", "dis");
-  p.innerHTML = e.parentElement.getElementsByTagName("input")[0].value;
+  let i = e.parentElement.getElementsByClassName("hidden")[0].textContent;
+  todoArray[i] = e.parentElement.getElementsByTagName("input")[0].value;
+  localStorage.setItem("todotasks", JSON.stringify(todoArray));
+  p.innerHTML = todoArray[i];
 
   var f = e.parentElement.firstChild;
   e.parentElement.insertBefore(p, f);
@@ -144,7 +152,8 @@ function savechange(e) {
 function cancelchange(e) {
   var p = document.createElement("p");
   p.setAttribute("class", "dis");
-  p.innerHTML = taskforedit;
+  let i = e.parentElement.getElementsByClassName("hidden")[0].textContent;
+  p.innerHTML = todoArray[i];
 
   var f = e.parentElement.firstChild;
   e.parentElement.insertBefore(p, f);
@@ -160,10 +169,16 @@ function cancelchange(e) {
 
 // display current date in h2 heading
 function displaycurdate() {
-  document.getElementById("curdate").innerHTML = new Date();
+  var d = new Date();
+  d = d.toString().split(" ");
+  d = d[1] + " " + d[2] + " " + d[3];
+  document.getElementById("curdate").innerHTML = d;
 }
 
-setInterval(function() { displaycurdate(); }, 1000);
+window.onload = function() {
+  displaycurdate();
+  adddiv();
+}
 
 var task = document.getElementById("textfield");
 
