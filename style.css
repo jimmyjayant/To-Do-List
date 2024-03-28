@@ -3,11 +3,14 @@
 }
 
 body {
-    background-color:lightgrey;
+    background-image:url('background.jpg');
+    background-attachment:fixed;
+    background-size:100% 100%;
 }
 
 h1, h2 {
     text-align:center;
+    color:white;
 }
 
 .container {
@@ -21,13 +24,12 @@ h1, h2 {
 }
 
 .text {
-    border:2px solid black;
+    border:2px solid grey;
     padding:20px;
-    width:50%;
+    width:80%;
     margin-left:auto;
     margin-right:auto;
     overflow:auto;
-    background-color:white;
 }
 
 input {

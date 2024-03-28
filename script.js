@@ -88,6 +88,9 @@ function tick(e) {
     {
       var todo = ptag.innerHTML;
       ptag.innerHTML = `<del>${todo}</del>`;
+      let i = e.parentElement.getElementsByClassName("hidden")[0].textContent;
+      todoArray[i] = ptag.innerHTML;
+      localStorage.setItem("todotasks", JSON.stringify(todoArray));
     }
   }  
 }
