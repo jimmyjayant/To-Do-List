@@ -2,15 +2,8 @@
     box-sizing:border-box;
 }
 
-body {
-    background-image:url('background.jpg');
-    background-attachment:fixed;
-    background-size:100% 100%;
-}
-
 h1, h2 {
     text-align:center;
-    color:white;
 }
 
 .container {
