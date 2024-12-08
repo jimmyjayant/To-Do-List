@@ -2,8 +2,9 @@
     box-sizing:border-box;
 }
 
-h1, h2 {
-    text-align:center;
+body {
+    margin:0;
+    padding:0;
 }
 
 .container {
@@ -11,9 +12,30 @@ h1, h2 {
     flex-wrap:wrap;
     flex-direction:column;
     text-align:center;
-    justify-content:center;
     align-items:center;
     overflow:auto;
+}
+
+.heading {
+    background-color:grey;
+    padding:1rem;
+    width:100%;
+    margin:0;
+}
+
+.heading :is(h1, img) {
+    display:inline-block;
+    margin:0;
+    padding:0;
+}
+
+.heading img {
+    width:clamp(1rem, 2vw + 1rem, 2rem);
+    aspect-ratio:2/2.5;
+    vertical-align:sub;
+}
+h2 {
+    text-align:center;
 }
 
 .text {
@@ -41,7 +63,7 @@ input {
 }
 
 .text div {
-padding:1rem;
+    padding:1rem;
 }
 
 .dis {
@@ -49,8 +71,8 @@ padding:1rem;
 }
 
 #error {
-display:none;
-color:red;
+    display:none;
+    color:red;
 }
 
 .tick, .cross, .edit, .savechange, .cancelchange {
@@ -69,19 +91,19 @@ color:red;
 }
 
 @media screen and (max-width: 600px) {
-#addbut, span, input {
-    width:100%;
-    margin-left:auto;
-    margin-right:auto;
-}
+    #addbut, span, input {
+        width:100%;
+        margin-left:auto;
+        margin-right:auto;
+    }
 
-.dis {
-    display:block;
-}
+    .dis {
+        display:block;
+    }
 
-#addbut {
-    margin-top:10px;
-}
+    #addbut {
+        margin-top:10px;
+    }
 }
 
  
