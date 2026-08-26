@@ -41,29 +41,35 @@ function adddiv() {
       p.setAttribute("class", "dis");
       p.innerHTML = todoArray[i];
     
-      var add1 = document.createElement("button");
-      add1.innerHTML = "&#10004;";
-      add1.setAttribute("class", "tick");
-      add1.setAttribute("onclick", "tick(this)");
+      //var add1 = document.createElement("button");
+      var img1 = document.createElement("img");
+      img1.src = "images/buttons/check_button.png";
+      //.appendChild(img); 
+      img1.setAttribute("class", "tick");
+      img1.setAttribute("onclick", "tick(this)");
     
-      var add2 = document.createElement("button");
-      add2.innerHTML = "&#9998;";
-      add2.setAttribute("class", "edit");
-      add2.setAttribute("onclick", "edit(this)");
+      //var add2 = document.createElement("button");
+      var img2 = document.createElement("img");
+      img2.src = "images/buttons/edit_button.png";
+      //add2.appendChild(img);
+      img2.setAttribute("class", "edit");
+      img2.setAttribute("onclick", "edit(this)");
     
-      var add3 = document.createElement("button");
-      add3.innerHTML = "&#10008;";
-      add3.setAttribute("class", "cross");
-      add3.setAttribute("onclick", "cross(this)");
+      //var add3 = document.createElement("button");
+      var img3 = document.createElement("img");
+      img3.src = "images/buttons/close_button.png";
+      //add3.appendChild(img);
+      img3.setAttribute("class", "cross");
+      img3.setAttribute("onclick", "cross(this)");
 
       var add4 = document.createElement("span");
       add4.innerHTML = i;
       add4.setAttribute("class", "hidden");
       
       add.appendChild(p);
-      add.appendChild(add1);
-      add.appendChild(add2);
-      add.appendChild(add3);
+      add.appendChild(img1);
+      add.appendChild(img2);
+      add.appendChild(img3);
       add.appendChild(add4);
     
       document.getElementById('cont').appendChild(add);
@@ -104,15 +110,19 @@ function edit(e) {
   n.setAttribute("style", "margin-bottom: 5px;");
   n.value = edittask;
   
-  var newbut = document.createElement("button");
-  newbut.innerHTML = "\u{1F4BE}";
-  newbut.setAttribute("class", "savechange");
-  newbut.setAttribute("onclick", "savechange(this)");
+  //var newbut = document.createElement("button");
+  var img1 = document.createElement("img");
+  img1.src = "images/buttons/save_button.png";
+  //newbut.appendChild(img); 
+  img1.setAttribute("class", "savechange");
+  img1.setAttribute("onclick", "savechange(this)");
 
-  var newbut1 = document.createElement("button");
-  newbut1.innerHTML = "&#10060";
-  newbut1.setAttribute("class", "cancelchange");
-  newbut1.setAttribute("onclick", "cancelchange(this)");
+  //var newbut1 = document.createElement("button");
+  var img2 = document.createElement("img");
+  img2.src = "images/buttons/remove_button.png";
+  //newbut1.appendChild(img);
+  img2.setAttribute("class", "cancelchange");
+  img2.setAttribute("onclick", "cancelchange(this)");
 
   var newinput = e.parentElement.getElementsByTagName("input")[0];
 
@@ -123,8 +133,8 @@ function edit(e) {
     parentdiv.appendChild(n);
     n.select();
 
-    parentdiv.appendChild(newbut);
-    parentdiv.appendChild(newbut1);
+    parentdiv.appendChild(img1);
+    parentdiv.appendChild(img2);
 
     parentdiv.getElementsByClassName("tick")[0].style.display = "none";
     parentdiv.getElementsByClassName("edit")[0].style.display = "none";
@@ -172,9 +182,9 @@ function cancelchange(e) {
 
 // display current date in h2 heading
 function displaycurdate() {
-  var d = new Date();
+  var d = new Date();/*
   d = d.toString().split(" ");
-  d = d[1] + " " + d[2] + " " + d[3];
+  d = d[1] + " " + d[2] + " " + d[3];*/
   document.getElementById("curdate").innerHTML = d;
 }
 

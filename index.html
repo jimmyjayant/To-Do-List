@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en-IN">
     <head>
-      <meta charset="utf-8">
+      <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="description" content="The To Do List Website is built using HTML5, CSS3 and Vanilla JavaScript">
       <meta name="author" content="Jimmy Jayant">
       <meta name="keywords" content="todo list, jimmyjayant, html5, css3, vanilla js">
-        <title>
-            To Do List 
-        </title>
+        <title>To Do List</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="icon" href="favicon.png">
+        <link rel="icon" href="images/new_favicon.png">
     </head>
     <body>
-      <div class="container">
-        <div class="heading">
-          <img src="favicon.png" alt="To Do List Website Logo">
-          <h1>
-            To-Do List 
-         </h1>
-        </div>
-        <div id="date">
-          <h2 id="curdate"></h2>
-        </div>
-        
-        <div class="text" id="cont">
-            <input type="text" name="textfield" id="textfield" placeholder="Enter a task">
-            <button type="button" onclick="todo()" id="addbut">Add</button>
-            <br>
-            <span id="error">Please enter a value</span>
-        </div>
+      <header>
+        <img src="images/new_favicon.png" alt="To Do List Website Logo">
+          <h1>To-Do List</h1>
+      </header>
 
+      <div class="container">
+        <h2 id="curdate"></h2>
+
+        <div class="text" id="cont">
+              <input type="text" name="textfield" id="textfield" placeholder="Enter a task">
+              <button type="button" onclick="todo()" id="addbut">Add</button>
+              <br>
+              <span id="error">Please enter a value</span>
+        </div>
       </div>
-      
+
+      <footer>
+        Copyright &copy; 2026 Jimmy Jayant
+        <br>
+        <img src="images/india_img.png" alt="India">भारत में निर्मित
+      </footer>
+
       <script src="script.js"></script>
+      <noscript>
+        Your web browser does not support JavaScript.
+      </noscript>
     </body>
 </html>

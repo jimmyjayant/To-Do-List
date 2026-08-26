@@ -3,44 +3,51 @@
 }
 
 body {
+    display:flex;
+    flex-direction:column;
     margin:0;
     padding:0;
+    min-height:100vh;
+    background-color:#f1f1f1;
 }
 
 .container {
-    display:flex;
-    flex-wrap:wrap;
-    flex-direction:column;
+    flex:1;
     text-align:center;
-    align-items:center;
-    overflow:auto;
+    margin:0;
+    padding:1rem;
 }
 
-.heading {
-    background-color:grey;
+header {
+    background:linear-gradient(to top, lightgrey, darkgrey);
     padding:1rem;
     width:100%;
     margin:0;
+    text-align:center;
 }
 
-.heading :is(h1, img) {
+header :is(h1, img) {
     display:inline-block;
     margin:0;
     padding:0;
 }
 
-.heading img {
+header img {
     width:clamp(1rem, 2vw + 1rem, 2rem);
     aspect-ratio:2/2.5;
     vertical-align:sub;
 }
+
 h2 {
     text-align:center;
+    margin:0;
+    padding:1rem;
 }
 
 .text {
     border:2px solid grey;
-    padding:20px;
+    border-radius:1rem;
+    padding:1rem;
     width:80%;
     margin-left:auto;
     margin-right:auto;
@@ -49,49 +56,85 @@ h2 {
 
 input {
     width:80%;
-    padding:5px;
+    min-width:200px;
+    max-width:800px;
+    padding:1rem;
     border:2px solid black;
+    border-radius:1rem;
+    font-size:1rem;
 }
 
 #addbut {
-    padding:5px;
+    padding:1rem;
     border:2px solid black;
+    border-radius:1rem;
+    cursor:pointer;
+}
+
+#addbut:hover {
+    background-color:darkgrey;
+    font-weight:bold;
 }
 
 .todotask {
-    margin-top:10px;
+    margin:1rem auto;
+    background:linear-gradient(to top, lightgrey, darkgrey);
+    border-radius:1rem;
+    padding:1rem;
+    font-size:1.5rem;
 }
 
-.text div {
-    padding:1rem;
+.todotask img {
+    width:1.5rem;
+    aspect-ratio: 1/1;
+    vertical-align:middle;
 }
 
 .dis {
     display:inline-block;
+    margin:0;
 }
 
 #error {
     display:none;
     color:red;
+    font-size:1.2rem;
+    padding:1rem;
 }
 
 .tick, .cross, .edit, .savechange, .cancelchange {
-    font-size:1rem;
-    border-radius:100%;
+    font-size:1rem;/*
+    border:2px solid black;
+    border-radius:1rem;
+    padding:0.5rem;*/
     margin-left:5px;
     margin-right:5px;
+    cursor:pointer;
 }
+
+.tick:hover, .cross:hover, .edit:hover, .savechange:hover, .cancelchange:hover {
+    background-color:grey;
+}
+
 
 .hidden {
     display:none;
 }
 
-#cont div {
-    background-color:#c7ecee;
+footer {
+    background:linear-gradient(to top, lightgrey, darkgrey);
+    margin:0;
+    padding:1rem;
+    text-align:center;
+    font-size:1.5rem;
 }
 
 @media screen and (max-width: 600px) {
-    #addbut, span, input {
+    #cont {
+        margin:1rem 0;
+        width:100%;
+    }
+    span, input {
         width:100%;
         margin-left:auto;
         margin-right:auto;
@@ -105,5 +148,3 @@ input {
         margin-top:10px;
     }
 }
-
- 
